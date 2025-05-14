@@ -1,0 +1,78 @@
+{
+  "home": {
+    "intro": "At Pathly, we guide you through one of the most important steps in your life: choosing your career. Explore your interests, discover your talents, and connect with certified counselors who will help you shape the future you dream of.",
+    "slogan": "Your path starts here.",
+    "start": "Click to start!",
+    "benefitsTitle": "Our Benefits",
+    "benefitsDescription": "With Pathly you'll gain access to modern tools to understand yourself better, certified psychological counseling, interactive resources to explore your interests, and personalized support through every stage of your vocational journey.",
+    "goal1": "Empower students to discover their interests, skills, and vocations, enabling them to make academic and professional decisions with confidence.",
+    "goal2": "Provide an accessible platform that combines modern technology with human guidance to support the vocational orientation process.",
+    "goal3": "Connect students with certified vocational psychologists to ensure personalized and professional support throughout their career selection journey.",
+    "goal4": "Democratize vocational guidance in Peru and Latin America, so that every student, regardless of location or financial situation, can access high-quality counseling.",
+    "goal5": "Be recognized as the leading innovative platform in educational guidance with a human, inclusive, and continuous approach.",
+    "aboutTitle": "About Us",
+    "aboutDescription": "Each of us brings experience, creativity, and passion to build a platform that supports young people during one of the most important moments of their lives. We are united by the belief that technology, when used well, can inspire conscious decisions and transform futures."
+  },
+
+  "navbar": {
+    "home": "Home",
+    "benefits": "Benefits",
+    "goals": "Goals",
+    "team": "Team",
+    "login": "Log in",
+    "register": "Register"
+  },
+
+  "footer": {
+    "rights": "All rights reserved",
+    "explore": "Explore & Learn!",
+    "feedback": "Give us your opinion",
+    "faq": "Frequently Asked Questions",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "social": "Social Media",
+    "help": "Need help or have questions?",
+    "contact": "Contact us!"
+  },
+
+  "login": {
+    "back": "Back to Home",
+    "title": "PATHLY",
+    "welcome": "Welcome back!",
+    "email": "Email",
+    "password": "Password",
+    "placeholderEmail": "Enter your email",
+    "placeholderPassword": "Enter your password",
+    "submit": "Log in",
+    "noAccount": "Don't have an account?",
+    "createAccount": "Create one now!",
+    "forgot": "Forgot your password?",
+    "recover": "Click here to recover it",
+    "support": "Having technical issues?",
+    "contact": "Contact us"
+  },
+
+  "register": {
+    "back": "Back to Home",
+    "title": "PATHLY",
+    "subtitle": "Create your account!",
+    "name": "First Name",
+    "lastname": "Last Name",
+    "birthdate": "Birthdate",
+    "phone": "Phone number",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "placeholderName": "Enter your first name",
+    "placeholderLastname": "Enter your last name",
+    "placeholderPhone": "Enter your phone number",
+    "placeholderEmail": "Enter your email",
+    "placeholderPassword": "Create a secure password",
+    "placeholderConfirmPassword": "Re-type your password",
+    "submit": "Register",
+    "haveAccount": "Already have an account?",
+    "loginLink": "Log in here",
+    "support": "Having technical issues?",
+    "contact": "Contact us"
+  }
+}

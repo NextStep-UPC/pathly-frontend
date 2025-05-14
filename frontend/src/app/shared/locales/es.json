@@ -1,0 +1,78 @@
+{
+  "home": {
+    "intro": "En Pathly te acompañamos en uno de los pasos más importantes de tu vida: elegir tu carrera. Explora tus intereses, conoce tus talentos y conecta con orientadores certificados que te guiarán hacia el futuro que sueñas.",
+    "slogan": "Tu vocación empieza aquí.",
+    "start": "¡Clic para empezar!",
+    "benefitsTitle": "¡Nuestros beneficios!",
+    "benefitsDescription": "Con Pathly tendrás acceso a herramientas modernas para conocerte mejor, asesoría de psicólogos certificados, recursos interactivos para explorar tus intereses, y acompañamiento personalizado en cada etapa de tu elección vocacional.",
+    "goal1": "Empoderar a los estudiantes para que descubran sus intereses, habilidades y vocaciones, tomando decisiones académicas y profesionales con seguridad y confianza.",
+    "goal2": "Ofrecer una plataforma accesible que combine tecnología moderna y acompañamiento humano para facilitar el proceso de orientación vocacional.",
+    "goal3": "Conectar a estudiantes con psicólogos vocacionales certificados, asegurando un acompañamiento personalizado y profesional durante todo su proceso de elección de carrera.",
+    "goal4": "Democratizar la orientación vocacional en el Perú y Latinoamérica, permitiendo que cualquier estudiante, sin importar su ubicación o situación económica, acceda a una guía de calidad.",
+    "goal5": "Ser reconocidos como la plataforma líder en innovación educativa para la orientación vocacional, con un enfoque humano, inclusivo y continuo.",
+    "aboutTitle": "Sobre nosotros",
+    "aboutDescription": "Cada uno de nosotros aporta su experiencia, creatividad y pasión para construir una plataforma que acompañe a los jóvenes en uno de los momentos más importantes de su vida. Nos une la convicción de que la tecnología, bien utilizada, puede ser una herramienta poderosa para inspirar decisiones conscientes y transformar futuros."
+  },
+
+  "navbar": {
+    "home": "Inicio",
+    "benefits": "Beneficios",
+    "goals": "Metas",
+    "team": "Equipo",
+    "login": "Iniciar sesión",
+    "register": "Registrarse"
+  },
+
+  "footer": {
+    "rights": "Todos los derechos reservados",
+    "explore": "¡Explora e infórmate!",
+    "feedback": "Danos tu opinión",
+    "faq": "Preguntas frecuentes",
+    "terms": "Términos y condiciones",
+    "privacy": "Política de privacidad",
+    "social": "Redes sociales",
+    "help": "¿Problemas o dudas sin resolver?",
+    "contact": "¡Contáctanos!"
+  },
+
+  "login": {
+    "back": "Volver a ‘Inicio’",
+    "title": "PATHLY",
+    "welcome": "¡Bienvenido/a de vuelta!",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "placeholderEmail": "Ingresa tu correo",
+    "placeholderPassword": "Ingresa tu contraseña",
+    "submit": "Iniciar sesión",
+    "noAccount": "¿No tienes una cuenta?",
+    "createAccount": "¡Crea una nueva ahora!",
+    "forgot": "¿Has olvidado tu contraseña?",
+    "recover": "¡Haz clic aquí para recuperarla!",
+    "support": "¿Tienes problemas técnicos?",
+    "contact": "¡Contáctanos!"
+  },
+
+  "register": {
+    "back": "Volver a ‘Inicio’",
+    "title": "PATHLY",
+    "subtitle": "¡Crea tu cuenta!",
+    "name": "Nombres",
+    "lastname": "Apellidos",
+    "birthdate": "Fecha de nacimiento",
+    "phone": "Número telefónico",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "placeholderName": "Ingresa tus nombres",
+    "placeholderLastname": "Ingresa tus apellidos",
+    "placeholderPhone": "Ingresa tu número",
+    "placeholderEmail": "Ingresa tu correo",
+    "placeholderPassword": "Crea una contraseña segura",
+    "placeholderConfirmPassword": "Vuelve a escribir tu contraseña",
+    "submit": "Registrarse",
+    "haveAccount": "¿Ya tienes una cuenta?",
+    "loginLink": "Inicia sesión aquí",
+    "support": "¿Tienes problemas técnicos?",
+    "contact": "¡Contáctanos!"
+  }
+}
