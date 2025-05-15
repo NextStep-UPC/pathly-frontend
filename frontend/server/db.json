@@ -1,0 +1,79 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "text": "¿Qué actividad disfrutas más?",
+      "options": ["Leer libros", "Resolver problemas matemáticos", "Dibujar o pintar", "Trabajar en equipo"]
+    },
+    {
+      "id": 2,
+      "text": "¿Qué tipo de tareas prefieres?",
+      "options": ["Escribir ensayos", "Hacer experimentos", "Diseñar gráficos", "Organizar eventos"]
+    },
+    {
+      "id": 3,
+      "text": "¿Qué te motiva más?",
+      "options": ["Aprender sobre historia", "Entender cómo funcionan las cosas", "Crear algo nuevo", "Ayudar a los demás"]
+    },
+    {
+      "id": 4,
+      "text": "¿Qué prefieres hacer en tu tiempo libre?",
+      "options": ["Leer novelas", "Jugar videojuegos de estrategia", "Hacer manualidades", "Participar en actividades sociales"]
+    },
+    {
+      "id": 5,
+      "text": "¿Qué asignatura te gusta más?",
+      "options": ["Lenguaje", "Ciencias", "Arte", "Educación física"]
+    },
+    {
+      "id": 6,
+      "text": "¿Cómo te describirías?",
+      "options": ["Analítico", "Curioso", "Creativo", "Empático"]
+    },
+    {
+      "id": 7,
+      "text": "¿Qué tipo de películas prefieres?",
+      "options": ["Documentales", "Ciencia ficción", "Animación", "Drama"]
+    },
+    {
+      "id": 8,
+      "text": "¿Qué tipo de trabajo te gustaría hacer?",
+      "options": ["Escribir artículos", "Investigar en un laboratorio", "Diseñar productos", "Trabajar con personas"]
+    },
+    {
+      "id": 9,
+      "text": "¿Qué habilidad valoras más?",
+      "options": ["Comunicación", "Resolución de problemas", "Innovación", "Liderazgo"]
+    },
+    {
+      "id": 10,
+      "text": "¿Qué prefieres en un proyecto?",
+      "options": ["Escribir el informe", "Hacer los cálculos", "Diseñar la presentación", "Coordinar al equipo"]
+    },
+    {
+      "id": 11,
+      "text": "¿Qué actividad te resulta más interesante?",
+      "options": ["Debatir ideas", "Construir modelos", "Crear ilustraciones", "Planificar eventos"]
+    },
+    {
+      "id": 12,
+      "text": "¿Qué tipo de libros prefieres?",
+      "options": ["Novelas", "Ciencia y tecnología", "Arte y diseño", "Autoayuda"]
+    },
+    {
+      "id": 13,
+      "text": "¿Qué prefieres aprender?",
+      "options": ["Idiomas", "Programación", "Fotografía", "Psicología"]
+    },
+    {
+      "id": 14,
+      "text": "¿Qué te resulta más satisfactorio?",
+      "options": ["Escribir una historia", "Resolver un problema técnico", "Crear algo visualmente atractivo", "Ayudar a alguien a resolver un problema"]
+    },
+    {
+      "id": 15,
+      "text": "¿Qué ambiente de trabajo prefieres?",
+      "options": ["Tranquilo y enfocado", "Dinámico y desafiante", "Creativo y flexible", "Colaborativo y social"]
+    }
+  ]
+}
