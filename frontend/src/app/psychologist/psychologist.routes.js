@@ -3,8 +3,8 @@ import dashboardView from './views/dashboard-view.vue';
 
 export const psychologistRoutes = [
     {
-        path: '/psichologist',
-        name: 'psichologist',
+        path: '/psychologist',
+        name: 'psychologist',
         component: dashboardView
     },
 
