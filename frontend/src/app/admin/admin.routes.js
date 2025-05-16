@@ -1,4 +1,4 @@
-import SessionsScheduleView from './views/sessions-schedule-view.vue';
+import SessionsScheduleView from './views/admin-dashboard-view.vue';
 
 export const adminRoutes = [
     {
