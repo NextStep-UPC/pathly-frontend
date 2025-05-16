@@ -1,0 +1,395 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #ffffff;
+  color: #333;
+  padding-top: 80px;
+}
+
+/* ===== HEADER / NAVBAR ===== */
+
+.header {
+  background-color: #c6d5c9;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 0.5rem 2rem;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.logo {
+  height: 150px;
+}
+
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+.auth-buttons select {
+  padding: 0.4rem 0.7rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-weight: 600;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.login-btn {
+  background-color: #f0f0f0;
+  border: 1px solid #333;
+  color: #333;
+}
+
+.register-btn {
+  background-color: #333;
+  color: #fff;
+}
+
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: 80px;
+    padding: 0 1.5rem;
+  }
+
+  .header-container {
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+  .logo {
+    height: 100px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .auth-buttons {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ===== ROLES SECTION ===== */
+
+.roles {
+  padding: 10rem 2rem 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.roles-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #333;
+  max-width: 700px;
+}
+
+.roles-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.role-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  flex: 1 1 280px;
+  max-width: 300px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.role-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.role-card h3 {
+  font-size: 1.3rem;
+  color: #5e815b;
+  margin-bottom: 0.5rem;
+}
+
+.role-card p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .roles-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .role-card {
+    width: 100%;
+    max-width: 350px;
+  }
+}
+
+/* ===== FOOTER ===== */
+
+.footer {
+  background-color: #c6d5c9;
+  padding: 3rem 2rem;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.footer-logo {
+  flex: 1 1 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-logo img {
+  width: 150px;
+  margin-bottom: 1rem;
+}
+
+.footer-logo p {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.footer-links {
+  flex: 2 1 600px;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-column {
+  min-width: 150px;
+}
+
+.footer-column h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-logo {
+    align-items: center;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.plans {
+  padding: 6rem 2rem;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.plans-title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 3rem;
+}
+
+.plans-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.plan-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  max-width: 320px;
+  flex: 1;
+  text-align: center;
+}
+
+.plan-card h3 {
+  font-size: 1.5rem;
+  color: #5e815b;
+  margin-bottom: 1rem;
+}
+
+.plan-card .price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.plan-card ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.plan-card li {
+  font-size: 0.95rem;
+  margin: 0.5rem 0;
+}
+
+.plan-card .btn {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.plan-card .selected {
+  background-color: #5e815b;
+  color: #fff;
+  cursor: default;
+}
+
+.plan-card .upgrade {
+  background-color: #333;
+  color: #fff;
+}
+
+.plan-comparison {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.plan-comparison h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.plan-comparison table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.plan-comparison th,
+.plan-comparison td {
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.plan-comparison th {
+  background-color: #c6d5c9;
+  font-weight: 600;
+}
+
+.plan-comparison td {
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .plans-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .plan-comparison table {
+    font-size: 0.85rem;
+  }
+}
