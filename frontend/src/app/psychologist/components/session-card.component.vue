@@ -1,6 +1,6 @@
 <template>
   <aside class="sidebar">
-    <h1 class="logo">Pal<span>THY</span></h1>
+    <h1 class="logo">PaT<span>HLY</span></h1>
     <nav>
       <ul>
         <li><router-link to="/dashboard">Dashboard</router-link></li>
