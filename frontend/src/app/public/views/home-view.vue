@@ -1,85 +1,122 @@
 <template>
   <div>
-    <NavbarComponent :isMenuOpen="isMenuOpen" @toggleMenu="toggleMenu" />
+    <HomeNavbarComponent :isMenuOpen="isMenuOpen" @toggleMenu="toggleMenu" />
 
-    <section id="inicio" class="hero">
-      <div class="hero-container">
-        <div class="hero-image">
-          <img :src="homePhoto" alt="Pathly Home" />
+    <section id="roles" class="roles">
+      <h2 class="roles-title">{{ $t('home.selectRole') }}</h2>
+      <div class="roles-container">
+        <div class="role-card" @click="goTo('admin')">
+          <h3>{{ $t('home.adminTitle') }}</h3>
+          <p>{{ $t('home.adminDescription') }}</p>
         </div>
-        <div class="hero-text">
-          <p class="description">
-            {{ $t('home.intro') }}
-          </p>
-          <h3>{{ $t('home.slogan') }}</h3>
-          <a href="#" class="btn start-btn">{{ $t('home.start') }}</a>
+        <div class="role-card" @click="goTo('psychologist')">
+          <h3>{{ $t('home.psychologistTitle') }}</h3>
+          <p>{{ $t('home.psychologistDescription') }}</p>
+        </div>
+        <div class="role-card" @click="goTo('student')">
+          <h3>{{ $t('home.studentTitle') }}</h3>
+          <p>{{ $t('home.studentDescription') }}</p>
         </div>
       </div>
     </section>
 
-    <section id="beneficios" class="benefits">
-      <div class="benefits-container">
-        <div class="benefits-logo">
-          <img :src="logo" alt="Pathly Logo" />
+    <section class="plans">
+      <h2 class="plans-title">Nuestros Planes</h2>
+      <div class="plans-container">
+        <div class="plan-card active">
+          <h3>Plan Gratuito</h3>
+          <p class="price">S/ 0</p>
+          <ul>
+            <li>Test vocacional</li>
+            <li>Resultados inmediatos</li>
+            <li>Acceso a informes básicos</li>
+          </ul>
+          <button class="btn selected" disabled>En uso</button>
         </div>
-        <div class="benefits-text">
-          <h2>{{ $t('home.benefitsTitle') }}</h2>
-          <p>{{ $t('home.benefitsDescription') }}</p>
-        </div>
-      </div>
-    </section>
 
-    <section id="metas" class="goals">
-      <div class="goals-container">
-        <div class="goals-image">
-          <img :src="goalsPhoto" alt="Our Goals Photo" />
-        </div>
-        <div class="goals-text">
-          <ol>
-            <li>{{ $t('home.goal1') }}</li>
-            <li>{{ $t('home.goal2') }}</li>
-            <li>{{ $t('home.goal3') }}</li>
-            <li>{{ $t('home.goal4') }}</li>
-            <li>{{ $t('home.goal5') }}</li>
-          </ol>
+        <div class="plan-card premium">
+          <h3>Plan Premium</h3>
+          <p class="price">S/ 29.90</p>
+          <ul>
+            <li>Todo lo del plan gratuito</li>
+            <li>Asesoría personalizada</li>
+            <li>Informes detallados</li>
+            <li>Seguimiento continuo</li>
+          </ul>
+          <button class="btn upgrade">Adquirir</button>
         </div>
       </div>
-    </section>
 
-    <section id="equipo" class="team">
-      <div class="team-container">
-        <div class="team-image">
-          <img :src="aboutPhoto" alt="About Us Photo" />
-        </div>
-        <div class="team-text">
-          <h2>{{ $t('home.aboutTitle') }}</h2>
-          <p>{{ $t('home.aboutDescription') }}</p>
-        </div>
+      <div class="plan-comparison">
+        <h3>Comparación de Beneficios</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Funcionalidad</th>
+              <th>Gratuito</th>
+              <th>Premium</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Test vocacional</td>
+              <td>✔️</td>
+              <td>✔️</td>
+            </tr>
+            <tr>
+              <td>Informes básicos</td>
+              <td>✔️</td>
+              <td>✔️</td>
+            </tr>
+            <tr>
+              <td>Asesoría personalizada</td>
+              <td>❌</td>
+              <td>✔️</td>
+            </tr>
+            <tr>
+              <td>Informes detallados</td>
+              <td>❌</td>
+              <td>✔️</td>
+            </tr>
+            <tr>
+              <td>Seguimiento</td>
+              <td>❌</td>
+              <td>✔️</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
+    <HomeFooterComponent />
   </div>
-  <FooterComponent />
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
-import NavbarComponent from '@/app/shared/components/navbar.component.vue';
-import FooterComponent from '@/app/shared/components/footer.component.vue';
+import { useRouter } from 'vue-router';
+import HomeNavbarComponent from '@/app/shared/components/home-navbar.component.vue';
+import HomeFooterComponent from '@/app/shared/components/home-footer.component.vue';
 
 const { t } = useI18n();
+const router = useRouter();
 
 const isMenuOpen = ref(false);
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
 
-const logo = new URL('@/assets/images/pathly-logo.png', import.meta.url).href;
-const homePhoto = new URL('@/assets/images/home-photo.png', import.meta.url).href;
-const goalsPhoto = new URL('@/assets/images/our-goals-photo.png', import.meta.url).href;
-const aboutPhoto = new URL('@/assets/images/about-us-photo.png', import.meta.url).href;
+const validRoles = ['admin', 'psychologist', 'student'];
+
+const goTo = (role) => {
+  if (validRoles.includes(role)) {
+    router.push(`/${role}`);
+  } else {
+    console.warn(`Ruta inválida: /${role}`);
+  }
+};
 </script>
 
 <style scoped>
-@import '../../shared/styles/landing.css';
+@import '../../shared/styles/home.css';
 </style>
