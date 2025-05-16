@@ -1,0 +1,23 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.header h2 {
+    font-size: 1.8rem;
+}
+
+.profile {
+    text-align: right;
+}
+
+.profile span {
+    display: block;
+    font-weight: bold;
+}
+
+.profile small {
+    color: gray;
+}
