@@ -61,7 +61,7 @@ export default {
 }
 
 .schedule-table th {
-  background-color: #007BFF;
+  background-color: #8595AA;
   color: white;
 }
 
