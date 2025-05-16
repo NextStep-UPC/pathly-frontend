@@ -1,9 +1,9 @@
-import SessionsScheduleView from './views/sessions-schedule-view.vue';
+import AdminDashboardView from './views/admin-dashboard-view.vue';
 
 export const adminRoutes = [
-    {
-        path: '/admin',
-        name: 'SessionsSchedule',
-        component: SessionsScheduleView,
-    },
+  {
+    path: '/admin',
+    name: 'AdminDashboard',
+    component: AdminDashboardView,
+  },
 ];
