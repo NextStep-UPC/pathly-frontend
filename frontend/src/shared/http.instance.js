@@ -15,8 +15,9 @@ http.interceptors.request.use((config) => {
 http.interceptors.response.use(
     (r) => r,
     (err) => {
-        // Aquí podrías lanzar un toast, modal, etc.
         console.error('[HTTP] Error:', err.response?.data ?? err.message);
         return Promise.reject(err);
     }
 );
+
+export default http;
