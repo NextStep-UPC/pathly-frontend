@@ -1,7 +1,12 @@
-// No implementado aún, reservado para lógica futura
+import { authService } from './auth.service';
+import { useAuthStore } from '@/shared/stores/auth.store';
+
 export function useLogin() {
-  const login = (email, password) => {
-    console.log('Login no implementado:', email, password);
+  const auth = useAuthStore();
+
+  const login = async (email, password) => {
+    const { token, user } = await authService.login({ email, password });
+    auth.setCredentials({ token, user });
   };
 
   return { login };
