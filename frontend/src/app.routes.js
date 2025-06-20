@@ -21,42 +21,25 @@ const router = createRouter({
   routes,
 });
 
-// Redirección según rol
-function redirectByRole(role) {
-  switch (role) {
-    case 'Admin':
-      return '/admin';
-    case 'Psychologist':
-      return '/psychologist';
-    case 'Student':
-    case 'Normal':
-      return '/students';
-    default:
-      return '/';
-  }
-}
-
 router.beforeEach((to, from, next) => {
   const auth = useAuthStore();
 
-  // Rutas protegidas
+  // Si la ruta requiere autenticación y no está autenticado
   if (to.meta.requiresAuth && !auth.isAuthenticated) {
     return next({ path: '/login', query: { redirect: to.fullPath } });
   }
 
-  // Rutas solo para invitados (login, register, etc.)
   if (to.meta.guest && auth.isAuthenticated) {
-    return next(redirectByRole(auth.role));
+    return next('/');
   }
 
-  // Rutas con restricción de roles
   if (
       to.meta.roles &&
       Array.isArray(to.meta.roles) &&
       auth.isAuthenticated &&
       !to.meta.roles.includes(auth.role)
   ) {
-    return next(redirectByRole(auth.role)); // Redirige al home de su rol
+    return next('/');
   }
 
   next();

@@ -46,22 +46,14 @@ import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { registerForm as defaultForm } from '../models/register-form.model';
 import { useRegister } from '../services/use-register.service';
-import { useAuthStore } from '@/shared/stores/auth.store';
 
 const { t } = useI18n();
 const router = useRouter();
 const { register } = useRegister();
-const auth = useAuthStore();
 
 const form = reactive({ ...defaultForm });
 const loading = ref(false);
 const error = ref('');
-
-const redirectByRole = {
-  Admin: '/admin',
-  Psychologist: '/psychologist',
-  Normal: '/students'
-};
 
 const inputs = computed(() => [
   {
@@ -118,10 +110,8 @@ async function submit() {
   error.value = '';
 
   try {
-    await register({ ...form }); // ya guarda token y user en el store
-
-    const redirectPath = redirectByRole[auth.role] || '/';
-    await router.push(redirectPath);
+    await register({ ...form }); // Guarda token y user en el store
+    await router.push('/'); // Redirección fija al HomeView
   } catch (err) {
     if (err.response) {
       const backendMsg = err.response.data?.errors?.[0] || err.response.data?.message;

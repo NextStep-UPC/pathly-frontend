@@ -71,22 +71,13 @@ const form = reactive({ ...defaultForm });
 const loading = ref(false);
 const error = ref('');
 
-const redirectByRole = {
-  Admin: '/admin',
-  Psychologist: '/psychologist',
-  Normal: '/students',
-};
-
 async function submit() {
   loading.value = true;
   error.value = '';
 
   try {
     await login({ ...form });
-
-    const role = auth.role;
-    const redirectPath = redirectByRole[role] || '/';
-    await router.push(redirectPath);
+    await router.push('/'); // Redirige siempre al HomeView
   } catch (err) {
     const backendMsg = err.response?.data?.message ?? err.message;
     error.value = backendMsg || t('login.error');

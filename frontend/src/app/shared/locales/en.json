@@ -8,29 +8,7 @@
     "psychologistTitle": "Psychologist",
     "psychologistDescription": "Assess students and manage sessions.",
     "studentTitle": "Student",
-    "studentDescription": "Check your meetings and take tests.",
-    "plans": {
-      "title": "Our Plans",
-      "current": "In use",
-      "free": {
-        "title": "Free Plan",
-        "feature1": "Vocational test",
-        "feature2": "Instant results",
-        "feature3": "Basic reports"
-      },
-      "premium": {
-        "title": "Premium Plan",
-        "feature1": "All from the free plan",
-        "feature2": "Personalized counseling",
-        "feature3": "Detailed reports",
-        "feature4": "Continuous tracking",
-        "cta": "Get it"
-      },
-      "comparison": {
-        "title": "Benefits Comparison",
-        "feature": "Feature"
-      }
-    }
+    "studentDescription": "Check your meetings and take tests."
   },
 
   "navbar": {
@@ -39,7 +17,10 @@
     "goals": "Goals",
     "team": "Team",
     "login": "Log in",
-    "register": "Register"
+    "register": "Register",
+    "language": "Language",
+    "settings": "Settings",
+    "logout": "Sign out"
   },
 
   "footer": {

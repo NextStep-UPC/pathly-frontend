@@ -5,7 +5,7 @@ export const studentRoutes = [
         component: () => import('./views/test-view.vue'),
         meta: {
             requiresAuth: true,
-            roles: ['Student', 'Normal']
+            roles: ['Normal']
         }
     },
 ];

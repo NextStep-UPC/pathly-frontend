@@ -8,29 +8,7 @@
     "psychologistTitle": "Psicólogo",
     "psychologistDescription": "Evalúa estudiantes y gestiona sesiones.",
     "studentTitle": "Estudiante",
-    "studentDescription": "Consulta tus reuniones y realiza test.",
-    "plans": {
-      "title": "Nuestros Planes",
-      "current": "En uso",
-      "free": {
-        "title": "Plan Gratuito",
-        "feature1": "Test vocacional",
-        "feature2": "Resultados inmediatos",
-        "feature3": "Informes básicos"
-      },
-      "premium": {
-        "title": "Plan Premium",
-        "feature1": "Todo lo del plan gratuito",
-        "feature2": "Asesoría personalizada",
-        "feature3": "Informes detallados",
-        "feature4": "Seguimiento continuo",
-        "cta": "Adquirir"
-      },
-      "comparison": {
-        "title": "Comparación de Beneficios",
-        "feature": "Funcionalidad"
-      }
-    }
+    "studentDescription": "Consulta tus reuniones y realiza test."
   },
 
   "navbar": {
@@ -39,7 +17,10 @@
     "goals": "Metas",
     "team": "Equipo",
     "login": "Iniciar sesión",
-    "register": "Registrarse"
+    "register": "Registrarse",
+    "language": "Idioma",
+    "settings": "Configuración",
+    "logout": "Cerrar sesión"
   },
 
   "footer": {

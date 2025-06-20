@@ -4,6 +4,9 @@ export const publicRoutes = [
   {
     path: '/',
     name: 'Home',
-    component: HomeView
+    component: HomeView,
+    meta: {
+      requiresAuth: true,
+    },
   }
 ];
