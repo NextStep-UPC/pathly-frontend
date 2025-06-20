@@ -6,33 +6,39 @@
       <h1 class="login-title">{{ $t('login.title') }}</h1>
       <h2 class="login-subtitle">{{ $t('login.welcome') }}</h2>
 
-      <form @submit.prevent>
+      <form @submit.prevent="submit">
         <div class="form-group">
           <label for="email">{{ $t('login.email') }} <span>*</span></label>
           <input
-            type="email"
-            id="email"
-            required
-            :placeholder="$t('login.placeholderEmail')"
+              v-model="form.email"
+              type="email"
+              id="email"
+              required
+              :placeholder="$t('login.placeholderEmail')"
           />
         </div>
 
         <div class="form-group">
           <label for="password">{{ $t('login.password') }} <span>*</span></label>
           <input
-            type="password"
-            id="password"
-            required
-            :placeholder="$t('login.placeholderPassword')"
+              v-model="form.password"
+              type="password"
+              id="password"
+              required
+              :placeholder="$t('login.placeholderPassword')"
           />
         </div>
+
+        <p v-if="error" class="form-error">{{ error }}</p>
 
         <p class="form-link">
           {{ $t('login.noAccount') }}
           <RouterLink to="/register">{{ $t('login.createAccount') }}</RouterLink>
         </p>
 
-        <button type="submit" class="btn login-btn">{{ $t('login.submit') }}</button>
+        <button :disabled="loading" type="submit" class="btn login-btn">
+          {{ loading ? $t('login.loading') : $t('login.submit') }}
+        </button>
 
         <p class="form-link">
           {{ $t('login.forgot') }}
@@ -49,9 +55,37 @@
 </template>
 
 <script setup>
-import { RouterLink } from 'vue-router';
+import { reactive, ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { loginForm as defaultForm } from '../models/login-form.model';
+import { useLogin } from '../services/use-login.service';
+
+const form = reactive({ ...defaultForm });
+const { login } = useLogin();
+const router = useRouter();
+
+const loading = ref(false);
+const error = ref('');
+
+async function submit() {
+  loading.value = true;
+  error.value = '';
+  try {
+    await login(form.email, form.password);
+    router.push('/dashboard'); // Ajusta la ruta de destino
+  } catch (err) {
+    error.value =
+        err.response?.data?.errors?.[0] ?? err.response?.data?.message ?? 'Error';
+  } finally {
+    loading.value = false;
+  }
+}
 </script>
 
 <style scoped>
 @import '../../shared/styles/login.css';
+.form-error {
+  color: #ef4444;
+  margin-top: 0.5rem;
+}
 </style>
