@@ -15,7 +15,6 @@ const app = createApp(App);
 app.use(createPinia());
 app.use(router);
 
-// 👉 3. Resto de plugins
 app.use(i18n);
 app.use(PrimeVue);
 

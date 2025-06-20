@@ -1,4 +1,4 @@
-import httpInstance from "../../shared/services/http.instance.js";
+import httpInstance from "../../../shared/http.instance.js";
 
 /**
  * @class SectionService
