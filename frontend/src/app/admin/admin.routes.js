@@ -5,5 +5,9 @@ export const adminRoutes = [
     path: '/admin',
     name: 'AdminDashboard',
     component: AdminDashboardView,
+    meta: {
+      requiresAuth: true,
+      roles: ['Admin']
+    }
   },
 ];

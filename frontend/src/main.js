@@ -19,3 +19,6 @@ app.use(i18n);
 app.use(PrimeVue);
 
 app.mount('#app');
+
+import { useAuthStore } from '@/shared/stores/auth.store';
+window.useAuthStore = useAuthStore;

@@ -16,7 +16,7 @@
               :type="input.type"
               :id="input.id"
               :placeholder="input.placeholder"
-              :required="true"
+              required
           />
         </div>
 
@@ -43,64 +43,74 @@
 <script setup>
 import { reactive, ref, computed } from 'vue';
 import { useRouter } from 'vue-router';
+import { useI18n } from 'vue-i18n';
 import { registerForm as defaultForm } from '../models/register-form.model';
 import { useRegister } from '../services/use-register.service';
+import { useAuthStore } from '@/shared/stores/auth.store';
+
+const { t } = useI18n();
+const router = useRouter();
+const { register } = useRegister();
+const auth = useAuthStore();
 
 const form = reactive({ ...defaultForm });
-const { register } = useRegister();
-const router = useRouter();
-
 const loading = ref(false);
 const error = ref('');
+
+const redirectByRole = {
+  Admin: '/admin',
+  Psychologist: '/psychologist',
+  Normal: '/students'
+};
 
 const inputs = computed(() => [
   {
     id: 'name',
     type: 'text',
-    label: $t('register.name'),
-    placeholder: $t('register.placeholderName'),
+    label: t('register.name'),
+    placeholder: t('register.placeholderName'),
   },
   {
     id: 'lastname',
     type: 'text',
-    label: $t('register.lastname'),
-    placeholder: $t('register.placeholderLastname'),
+    label: t('register.lastname'),
+    placeholder: t('register.placeholderLastname'),
   },
   {
     id: 'birthdate',
     type: 'date',
-    label: $t('register.birthdate'),
+    label: t('register.birthdate'),
     placeholder: '',
   },
   {
     id: 'phone',
     type: 'tel',
-    label: $t('register.phone'),
-    placeholder: $t('register.placeholderPhone'),
+    label: t('register.phone'),
+    placeholder: t('register.placeholderPhone'),
   },
   {
     id: 'email',
     type: 'email',
-    label: $t('register.email'),
-    placeholder: $t('register.placeholderEmail'),
+    label: t('register.email'),
+    placeholder: t('register.placeholderEmail'),
   },
   {
     id: 'password',
     type: 'password',
-    label: $t('register.password'),
-    placeholder: $t('register.placeholderPassword'),
+    label: t('register.password'),
+    placeholder: t('register.placeholderPassword'),
   },
   {
     id: 'confirmPassword',
     type: 'password',
-    label: $t('register.confirmPassword'),
-    placeholder: $t('register.placeholderConfirmPassword'),
+    label: t('register.confirmPassword'),
+    placeholder: t('register.placeholderConfirmPassword'),
   },
 ]);
 
 async function submit() {
   if (form.password !== form.confirmPassword) {
-    error.value = 'Passwords do not match';
+    error.value = t('register.passwordMismatch') ?? 'Las contraseñas no coinciden';
     return;
   }
 
@@ -108,11 +118,17 @@ async function submit() {
   error.value = '';
 
   try {
-    await register({ ...form });
-    router.push('/dashboard'); // o '/login' si prefieres
+    await register({ ...form }); // ya guarda token y user en el store
+
+    const redirectPath = redirectByRole[auth.role] || '/';
+    await router.push(redirectPath);
   } catch (err) {
-    error.value =
-        err.response?.data?.errors?.[0] ?? err.response?.data?.message ?? 'Error';
+    if (err.response) {
+      const backendMsg = err.response.data?.errors?.[0] || err.response.data?.message;
+      error.value = backendMsg || 'Ocurrió un error inesperado';
+    } else {
+      error.value = 'Error de red o del servidor';
+    }
   } finally {
     loading.value = false;
   }
@@ -121,6 +137,7 @@ async function submit() {
 
 <style scoped>
 @import '../../shared/styles/register.css';
+
 .form-error {
   color: #ef4444;
   margin-top: 0.5rem;

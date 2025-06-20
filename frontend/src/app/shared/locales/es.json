@@ -68,7 +68,9 @@
     "forgot": "¿Has olvidado tu contraseña?",
     "recover": "¡Haz clic aquí para recuperarla!",
     "support": "¿Tienes problemas técnicos?",
-    "contact": "¡Contáctanos!"
+    "contact": "¡Contáctanos!",
+    "loading": "Iniciando sesión...",
+    "error": "Correo o contraseña incorrectos"
   },
 
   "register": {
@@ -92,7 +94,9 @@
     "haveAccount": "¿Ya tienes una cuenta?",
     "loginLink": "Inicia sesión aquí",
     "support": "¿Tienes problemas técnicos?",
-    "contact": "¡Contáctanos!"
+    "contact": "¡Contáctanos!",
+    "loading": "Registrando...",
+    "error": "Ocurrió un error"
   },
 
   "psychologist": {

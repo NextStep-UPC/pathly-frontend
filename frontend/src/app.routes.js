@@ -13,7 +13,6 @@ const routes = [
   ...studentRoutes,
   ...psychologistRoutes,
   ...adminRoutes,
-
   { path: '/:pathMatch(.*)*', redirect: '/' },
 ];
 
@@ -22,24 +21,42 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach((to, _from, next) => {
+// Redirección según rol
+function redirectByRole(role) {
+  switch (role) {
+    case 'Admin':
+      return '/admin';
+    case 'Psychologist':
+      return '/psychologist';
+    case 'Student':
+    case 'Normal':
+      return '/students';
+    default:
+      return '/';
+  }
+}
+
+router.beforeEach((to, from, next) => {
   const auth = useAuthStore();
 
+  // Rutas protegidas
   if (to.meta.requiresAuth && !auth.isAuthenticated) {
     return next({ path: '/login', query: { redirect: to.fullPath } });
   }
 
+  // Rutas solo para invitados (login, register, etc.)
   if (to.meta.guest && auth.isAuthenticated) {
-    return next('/dashboard');
+    return next(redirectByRole(auth.role));
   }
 
+  // Rutas con restricción de roles
   if (
       to.meta.roles &&
       Array.isArray(to.meta.roles) &&
       auth.isAuthenticated &&
       !to.meta.roles.includes(auth.role)
   ) {
-    return next('/'); // o '/unauthorized'
+    return next(redirectByRole(auth.role)); // Redirige al home de su rol
   }
 
   next();

@@ -57,25 +57,39 @@
 <script setup>
 import { reactive, ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { useI18n } from 'vue-i18n';
 import { loginForm as defaultForm } from '../models/login-form.model';
 import { useLogin } from '../services/use-login.service';
+import { useAuthStore } from '@/shared/stores/auth.store';
+
+const { t } = useI18n();
+const router = useRouter();
+const { login } = useLogin();
+const auth = useAuthStore();
 
 const form = reactive({ ...defaultForm });
-const { login } = useLogin();
-const router = useRouter();
-
 const loading = ref(false);
 const error = ref('');
+
+const redirectByRole = {
+  Admin: '/admin',
+  Psychologist: '/psychologist',
+  Normal: '/students',
+};
 
 async function submit() {
   loading.value = true;
   error.value = '';
+
   try {
-    await login(form.email, form.password);
-    router.push('/dashboard'); // Ajusta la ruta de destino
+    await login({ ...form });
+
+    const role = auth.role;
+    const redirectPath = redirectByRole[role] || '/';
+    await router.push(redirectPath);
   } catch (err) {
-    error.value =
-        err.response?.data?.errors?.[0] ?? err.response?.data?.message ?? 'Error';
+    const backendMsg = err.response?.data?.message ?? err.message;
+    error.value = backendMsg || t('login.error');
   } finally {
     loading.value = false;
   }

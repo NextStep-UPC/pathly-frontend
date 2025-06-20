@@ -68,7 +68,9 @@
     "forgot": "Forgot your password?",
     "recover": "Click here to recover it",
     "support": "Having technical issues?",
-    "contact": "Contact us"
+    "contact": "Contact us",
+    "loading": "Logging in...",
+    "error": "Invalid email or password"
   },
 
   "register": {
