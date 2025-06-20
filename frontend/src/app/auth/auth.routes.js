@@ -5,11 +5,13 @@ export const authRoutes = [
   {
     path: '/login',
     name: 'Login',
-    component: LoginView
+    component: LoginView,
+    meta: { guest: true },
   },
   {
     path: '/register',
     name: 'Register',
-    component: RegisterView
-  }
+    component: RegisterView,
+    meta: { guest: true },
+  },
 ];
