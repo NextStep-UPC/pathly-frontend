@@ -1,32 +1,32 @@
 import { defineStore } from 'pinia';
-import { useRouter } from 'vue-router';
 
 export const useAuthStore = defineStore('auth', {
     state: () => ({
-        user: JSON.parse(localStorage.getItem('user') || 'null'),
-        token: localStorage.getItem('token') || null,
+        token: localStorage.getItem('token'),
+        user:  JSON.parse(localStorage.getItem('user') || 'null'),
     }),
-
     getters: {
-        isAuthenticated: (s) => !!s.token,
-        role: (s) => s.user?.role ?? null,
+        isAuthenticated: (state) => !!state.token,
+        role:            (state) => state.user?.role,
     },
-
     actions: {
-        setCredentials({ token, user }) {
+        setToken(token) {
             this.token = token;
-            this.user = user;
             localStorage.setItem('token', token);
+        },
+        setUser(user) {
+            this.user = user;
             localStorage.setItem('user', JSON.stringify(user));
         },
-
+        setCredentials({ token, user }) {
+            this.setToken(token);
+            this.setUser(user);
+        },
         logout() {
             this.token = null;
-            this.user = null;
+            this.user  = null;
             localStorage.removeItem('token');
             localStorage.removeItem('user');
-            const router = useRouter();
-            // router.push('/login');
         },
     },
 });

@@ -1,23 +1,15 @@
+// src/shared/http.instance.js
 import axios from 'axios';
-import { useAuthStore } from '@/shared/stores/auth.store.js';
 
 export const http = axios.create({
     baseURL: import.meta.env.VITE_API_URL ?? 'http://localhost:5198/api',
     timeout: 8000,
 });
 
-http.interceptors.request.use((config) => {
-    const auth = useAuthStore();
-    if (auth.token) config.headers.Authorization = `Bearer ${auth.token}`;
+http.interceptors.request.use(config => {
+    const token = localStorage.getItem('token');
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+    }
     return config;
 });
-
-http.interceptors.response.use(
-    (r) => r,
-    (err) => {
-        console.error('[HTTP] Error:', err.response?.data ?? err.message);
-        return Promise.reject(err);
-    }
-);
-
-export default http;

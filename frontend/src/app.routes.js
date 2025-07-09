@@ -1,18 +1,15 @@
+// src/app/app.routes.js
 import { createRouter, createWebHistory } from 'vue-router';
-import { useAuthStore } from './shared/stores/auth.store.js';
+import { useAuthStore } from '@/shared/stores/auth.store.js';
 
-import { authRoutes } from './app/auth/auth.routes.js';
-import { publicRoutes } from './app/public/public.routes.js';
-import { studentRoutes } from './app/student/student.routes.js';
-import { psychologistRoutes } from './app/psychologist/psychologist.routes.js';
-import { adminRoutes } from './app/admin/admin.routes.js';
+import { publicRoutes } from '@/app/public/public.routes.js';
+import { authRoutes }   from '@/app/auth/auth.routes.js';
+import { profileRoutes } from '@/app/profile/profile.routes.js';
 
 const routes = [
   ...publicRoutes,
   ...authRoutes,
-  ...studentRoutes,
-  ...psychologistRoutes,
-  ...adminRoutes,
+  ...profileRoutes,
   { path: '/:pathMatch(.*)*', redirect: '/' },
 ];
 
@@ -29,13 +26,15 @@ router.beforeEach((to, from, next) => {
     return next({ path: '/login', query: { redirect: to.fullPath } });
   }
 
+  // Si la ruta está marcada como “guest” y ya está autenticado
   if (to.meta.guest && auth.isAuthenticated) {
     return next('/');
   }
 
+  // Control de acceso por roles
   if (
-      to.meta.roles &&
       Array.isArray(to.meta.roles) &&
+      to.meta.roles.length > 0 &&
       auth.isAuthenticated &&
       !to.meta.roles.includes(auth.role)
   ) {
