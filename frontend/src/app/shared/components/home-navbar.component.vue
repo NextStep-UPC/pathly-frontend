@@ -9,17 +9,28 @@
         </button>
 
         <div v-if="showDropdown" class="dropdown-menu">
-          <div class="user-info">
-            <div class="user-name">{{ auth.user?.name }} {{ auth.user?.lastName }}</div>
-            <div class="user-email">{{ auth.user?.email }}</div>
+          <div v-if="auth.user" class="user-info">
+            <div class="user-name">{{ auth.user.firstName }} {{ auth.user.lastName }}</div>
           </div>
 
-          <!-- Configuración -->
-          <RouterLink to="/settings" class="dropdown-item link-item">
+          <!-- Perfil -->
+          <RouterLink to="/profile" class="dropdown-item link-item">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                  stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="3" />
-              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33
+              <path d="M20 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M4 21v-2a4 4 0 0 1 3-3.87" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+            <span>Perfil</span>
+          </RouterLink>
+
+          <!-- Idioma -->
+          <div class="dropdown-item language-item">
+            <div class="language-label">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3" />
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33
              1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51
              1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06
              a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09
@@ -29,17 +40,6 @@
              a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06
              a1.65 1.65 0 0 0-.33 1.82v.09a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09
              a1.65 1.65 0 0 0-1.51 1z"/>
-            </svg>
-            <span>{{ $t('navbar.settings') }}</span>
-          </RouterLink>
-
-          <!-- Idioma -->
-          <div class="dropdown-item language-item">
-            <div class="language-label">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                   stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M2 12h20M12 2c4.5 4.5 4.5 11.5 0 16M12 2c-4.5 4.5-4.5 11.5 0 16" />
               </svg>
               <span>{{ $t('navbar.language') }}</span>
             </div>
@@ -70,7 +70,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRouter, RouterLink } from 'vue-router';
 import { useAuthStore } from '@/shared/stores/auth.store';
 import LanguageSwitcher from './language-switcher.component.vue';
@@ -87,7 +87,14 @@ function logout() {
   auth.logout();
   router.push('/login');
 }
+
+onMounted(() => {
+  if (!auth.user) {
+    auth.loadUserFromSession();
+  }
+});
 </script>
+
 
 <style scoped>
 @import '../../shared/styles/home.css';
@@ -142,7 +149,7 @@ function logout() {
   align-items: center;
   gap: 0.5rem;
   width: 100%;
-  padding: 0.5rem 0;
+  padding: 0.3rem 0;
   background: none;
   border: none;
   text-align: left;

@@ -1,4 +1,4 @@
-import { http } from '@/shared/http.instance';
+import http from '@/shared/http.instance';
 
 export const authService = {
     login: ({ email, password }) =>
