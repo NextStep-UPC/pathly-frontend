@@ -28,7 +28,7 @@ body {
 .register-form {
   flex: 1;
   background-color: #ffffff;
-  padding: 4rem 5rem;
+  padding: 4rem 0rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -144,7 +144,6 @@ body {
 
 .register-image {
   flex: 1;
-  height: 175vh;
   overflow: hidden;
   display: flex;
 }

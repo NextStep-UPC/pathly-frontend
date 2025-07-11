@@ -1,85 +1,79 @@
 <template>
-  <div>
-    <NavbarComponent :isMenuOpen="isMenuOpen" @toggleMenu="toggleMenu" />
+  <div class="home-layout">
+    <HomeSidebarComponent />
+    <div class="home-content">
+      <HomeNavbarComponent :isMenuOpen="isMenuOpen" @toggleMenu="toggleMenu" />
 
-    <section id="inicio" class="hero">
-      <div class="hero-container">
-        <div class="hero-image">
-          <img :src="homePhoto" alt="Pathly Home" />
+      <section id="roles" class="roles">
+        <h2 class="roles-title">{{ $t('home.selectRole') }}</h2>
+        <div class="roles-container">
+          <div
+              v-if="role === 'admin'"
+              class="role-card"
+              @click="goTo('admin')"
+          >
+            <h3>{{ $t('home.adminTitle') }}</h3>
+            <p>{{ $t('home.adminDescription') }}</p>
+          </div>
+          <div
+              v-if="role === 'psychologist'"
+              class="role-card"
+              @click="goTo('psychologist')"
+          >
+            <h3>{{ $t('home.psychologistTitle') }}</h3>
+            <p>{{ $t('home.psychologistDescription') }}</p>
+          </div>
+          <div
+              v-if="role === 'student'"
+              class="role-card"
+              @click="goTo('student')"
+          >
+            <h3>{{ $t('home.studentTitle') }}</h3>
+            <p>{{ $t('home.studentDescription') }}</p>
+          </div>
         </div>
-        <div class="hero-text">
-          <p class="description">
-            {{ $t('home.intro') }}
-          </p>
-          <h3>{{ $t('home.slogan') }}</h3>
-          <a href="#" class="btn start-btn">{{ $t('home.start') }}</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="beneficios" class="benefits">
-      <div class="benefits-container">
-        <div class="benefits-logo">
-          <img :src="logo" alt="Pathly Logo" />
-        </div>
-        <div class="benefits-text">
-          <h2>{{ $t('home.benefitsTitle') }}</h2>
-          <p>{{ $t('home.benefitsDescription') }}</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="metas" class="goals">
-      <div class="goals-container">
-        <div class="goals-image">
-          <img :src="goalsPhoto" alt="Our Goals Photo" />
-        </div>
-        <div class="goals-text">
-          <ol>
-            <li>{{ $t('home.goal1') }}</li>
-            <li>{{ $t('home.goal2') }}</li>
-            <li>{{ $t('home.goal3') }}</li>
-            <li>{{ $t('home.goal4') }}</li>
-            <li>{{ $t('home.goal5') }}</li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
-    <section id="equipo" class="team">
-      <div class="team-container">
-        <div class="team-image">
-          <img :src="aboutPhoto" alt="About Us Photo" />
-        </div>
-        <div class="team-text">
-          <h2>{{ $t('home.aboutTitle') }}</h2>
-          <p>{{ $t('home.aboutDescription') }}</p>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </div>
-  <FooterComponent />
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
-import NavbarComponent from '@/app/shared/components/navbar.component.vue';
-import FooterComponent from '@/app/shared/components/footer.component.vue';
+import { useRouter } from 'vue-router';
+import { useAuthStore } from '@/shared/stores/auth.store';
+import HomeNavbarComponent from '@/app/shared/components/home-navbar.component.vue';
+import HomeSidebarComponent from '@/app/shared/components/home-sidebar.component.vue';
 
 const { t } = useI18n();
+const router = useRouter();
+const auth = useAuthStore();
 
 const isMenuOpen = ref(false);
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
 
-const logo = new URL('@/assets/images/pathly-logo.png', import.meta.url).href;
-const homePhoto = new URL('@/assets/images/home-photo.png', import.meta.url).href;
-const goalsPhoto = new URL('@/assets/images/our-goals-photo.png', import.meta.url).href;
-const aboutPhoto = new URL('@/assets/images/about-us-photo.png', import.meta.url).href;
+const role = computed(() => auth.user?.role || '');
+
+const goTo = (role) => {
+  const validRoles = ['admin', 'psychologist', 'student'];
+  if (validRoles.includes(role)) {
+    router.push(`/${role}`);
+  } else {
+    console.warn(`Ruta inválida: /${role}`);
+  }
+};
 </script>
 
 <style scoped>
-@import '../../shared/styles/landing.css';
+@import '../../shared/styles/home.css';
+
+.home-layout {
+  display: flex;
+}
+
+.home-content {
+  flex: 1;
+}
 </style>

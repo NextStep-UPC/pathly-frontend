@@ -20,7 +20,7 @@
 .login-form {
   flex: 1;
   background-color: #ffffff;
-  padding: 4rem 5rem;
+  padding: 1rem 0rem;
   display: flex;
   flex-direction: column;
   justify-content: center;

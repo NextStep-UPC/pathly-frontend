@@ -1,17 +1,14 @@
 {
   "home": {
-    "intro": "En Pathly te acompañamos en uno de los pasos más importantes de tu vida: elegir tu carrera. Explora tus intereses, conoce tus talentos y conecta con orientadores certificados que te guiarán hacia el futuro que sueñas.",
-    "slogan": "Tu vocación empieza aquí.",
-    "start": "¡Clic para empezar!",
-    "benefitsTitle": "¡Nuestros beneficios!",
-    "benefitsDescription": "Con Pathly tendrás acceso a herramientas modernas para conocerte mejor, asesoría de psicólogos certificados, recursos interactivos para explorar tus intereses, y acompañamiento personalizado en cada etapa de tu elección vocacional.",
-    "goal1": "Empoderar a los estudiantes para que descubran sus intereses, habilidades y vocaciones, tomando decisiones académicas y profesionales con seguridad y confianza.",
-    "goal2": "Ofrecer una plataforma accesible que combine tecnología moderna y acompañamiento humano para facilitar el proceso de orientación vocacional.",
-    "goal3": "Conectar a estudiantes con psicólogos vocacionales certificados, asegurando un acompañamiento personalizado y profesional durante todo su proceso de elección de carrera.",
-    "goal4": "Democratizar la orientación vocacional en el Perú y Latinoamérica, permitiendo que cualquier estudiante, sin importar su ubicación o situación económica, acceda a una guía de calidad.",
-    "goal5": "Ser reconocidos como la plataforma líder en innovación educativa para la orientación vocacional, con un enfoque humano, inclusivo y continuo.",
-    "aboutTitle": "Sobre nosotros",
-    "aboutDescription": "Cada uno de nosotros aporta su experiencia, creatividad y pasión para construir una plataforma que acompañe a los jóvenes en uno de los momentos más importantes de su vida. Nos une la convicción de que la tecnología, bien utilizada, puede ser una herramienta poderosa para inspirar decisiones conscientes y transformar futuros."
+    "intro": "Bienvenido a la plataforma Pathly",
+    "slogan": "Tu guía vocacional y emocional",
+    "selectRole": "Bienvenido a la plataforma Pathly",
+    "adminTitle": "Administrador",
+    "adminDescription": "Accede al panel de gestión del sistema.",
+    "psychologistTitle": "Psicólogo",
+    "psychologistDescription": "Evalúa estudiantes y gestiona sesiones.",
+    "studentTitle": "Estudiante",
+    "studentDescription": "Consulta tus reuniones y realiza test."
   },
 
   "navbar": {
@@ -20,7 +17,10 @@
     "goals": "Metas",
     "team": "Equipo",
     "login": "Iniciar sesión",
-    "register": "Registrarse"
+    "register": "Registrarse",
+    "language": "Idioma",
+    "settings": "Configuración",
+    "logout": "Cerrar sesión"
   },
 
   "footer": {
@@ -49,7 +49,9 @@
     "forgot": "¿Has olvidado tu contraseña?",
     "recover": "¡Haz clic aquí para recuperarla!",
     "support": "¿Tienes problemas técnicos?",
-    "contact": "¡Contáctanos!"
+    "contact": "¡Contáctanos!",
+    "loading": "Iniciando sesión...",
+    "error": "Correo o contraseña incorrectos"
   },
 
   "register": {
@@ -73,6 +75,88 @@
     "haveAccount": "¿Ya tienes una cuenta?",
     "loginLink": "Inicia sesión aquí",
     "support": "¿Tienes problemas técnicos?",
-    "contact": "¡Contáctanos!"
+    "contact": "¡Contáctanos!",
+    "loading": "Registrando...",
+    "error": "Ocurrió un error"
+  },
+
+  "psychologist": {
+    "dashboard": {
+      "welcome": "Bienvenido(a), {{name}}",
+      "title": "Panel del psicólogo",
+      "subtitle": "Gestiona tus sesiones y estudiantes",
+      "activeStudents": "Estudiantes activos",
+      "scheduledSessions": "Sesiones programadas",
+      "consultHours": "Horas de consulta",
+      "averageRating": "Valoración media",
+      "subtext": {
+        "students": "este mes",
+        "upcoming": "Para los próximos",
+        "days": "días",
+        "compareWeek": "vs. semana anterior",
+        "basedOn": "De",
+        "reviews": "valoraciones"
+      }
+    },
+
+    "agenda": {
+      "title": "Agenda de hoy",
+      "noSessions": "No tienes sesiones programadas",
+      "viewAll": "Ver todas las sesiones"
+    },
+
+    "sessions": {
+      "title": "Sesiones",
+      "upcoming": "Próximas sesiones",
+      "viewDetails": "Ver detalles",
+      "reschedule": "Reprogramar",
+      "confirm": "Confirmar",
+      "cancel": "Cancelar",
+      "joinNow": "Unirse ahora",
+      "subtext": {
+        "students": "este mes",
+        "upcoming": "Para los próximos",
+        "days": "días",
+        "compareWeek": "vs. semana anterior",
+        "basedOn": "De",
+        "reviews": "valoraciones"
+      }
+    },
+
+    "students": {
+      "title": "Estudiantes asignados",
+      "viewProfile": "Ver perfil",
+      "message": "Enviar mensaje"
+    },
+
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "students": "Estudiantes",
+      "calendar": "Calendario",
+      "messages": "Mensajes",
+      "tools": "Herramientas",
+      "reports": "Informes",
+      "profile": "Mi Perfil",
+      "settings": "Configuración",
+      "logout": "Cerrar Sesión",
+      "planMessage": "Tu suscripción se renovará el 20 de junio de 2023",
+      "managePlan": "Gestionar Plan"
+    },
+
+    "sessionTypes": {
+      "orientation": "Orientación Vocacional",
+      "followUp": "Seguimiento",
+      "firstSession": "Primera Consulta"
+    },
+
+    "methods": {
+      "videoCall": "Videollamada",
+      "inPerson": "Presencial"
+    },
+
+    "status": {
+      "confirmed": "Confirmada",
+      "pending": "Pendiente"
+    }
   }
 }
